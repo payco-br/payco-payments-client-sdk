@@ -1,0 +1,2 @@
+pnpm test
+pnpm dlx @biomejs/biome check --apply .
