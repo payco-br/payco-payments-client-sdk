@@ -29,7 +29,7 @@ export const cardDataSchema = v.object({
 		}, "invalid card number, must be a valid credit card number"),
 	]),
 	/** Bandeira do cartão
-	 * 
+	 *
 	 * Bandeiras aceitas: MasterCard, Visa, Amex, Hipercard, Elo
 	 */
 	cardBrand: v.enum_(CardBrand),
