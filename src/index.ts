@@ -12,15 +12,22 @@ import { installScripts } from "./functions/install-scripts";
 import { tokenizeCardData } from "./functions/tokenize-card-data";
 
 declare type InitializeInput = {
+	/** Chave de integração */
 	keyId: string;
+	/** URL da API Payments by Payco (opcional) */
 	baseURL?: string;
+	/** ID do estabelecimento (opcional) */
 	orgId?: string;
+	/** Habilitar integração com anti-fraude (opcional) */
 	installScripts?: boolean;
+	/** ID de sessão, ou de um cliente cadastrado para utilizar dados de anti-fraude pré-existentes (opcional) */
 	sessionId?: string;
 };
 
 declare type TokenizeInput = {
+	/** Dados do cartão */
 	cardData: CardData;
+	/** Verificar o cartão quando enviado para a API (opcional) */
 	verifyCard?: boolean;
 };
 
@@ -66,9 +73,9 @@ export const initialize = async (input: InitializeInput) => {
 
 /**
  *
- * @param cardData Objeto com todos os dados do cartão ({@link CardData | ver fonte}) e flag `verifyCard`
+ * @param payload Objeto para informar os dados do cartão e flag `verifyCard`
  * para validar ou não o cartão quando enviado para a API realizar a tokenização
- * @returns
+ * @returns objeto com token do cartão
  */
 export const tokenize = async ({
 	cardData,
