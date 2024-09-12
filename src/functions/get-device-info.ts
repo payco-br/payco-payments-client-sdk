@@ -1,6 +1,6 @@
 export function getDeviceInfo() {
 	return {
-		http_accept_brower_value: navigator.userAgent,
+		http_accept_browser_value: navigator.userAgent,
 		// @ts-ignore
 		http_accept_content: navigator.accept,
 		http_browser_language: navigator.language,
