@@ -1,5 +1,0 @@
-/*!
- * cpf-cnpj-validator v1.0.3
- * (c) 2020-present Carvalho, Vinicius Luiz <carvalho.viniciusluiz@gmail.com>
- * Released under the MIT License.
- */

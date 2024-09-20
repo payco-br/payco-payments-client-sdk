@@ -1,3 +1,6 @@
 node_modules
 lib
 .env
+www/index.js
+www/index.js.map
+payco-payments-client-sdk-*
