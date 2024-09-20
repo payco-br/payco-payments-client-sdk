@@ -45,7 +45,7 @@
 		"webpack-cli": "^5.1.4"
 	},
 	"dependencies": {
-		"axios": "^1.6.7",
+		"axios": "^1.7.4",
 		"cpf-cnpj-validator": "^1.0.3",
 		"jose": "^5.2.2",
 		"valibot": "^0.28.1"
