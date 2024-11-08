@@ -5,19 +5,26 @@ buildAll();
 async function buildAll() {
 	return Promise.all([
 		build("script", {
+			format: "iife",
 			platform: "browser",
 			minify: true,
 			target: ["es6"],
+			outfile: "./dist/script.js",
 		}),
 		build("esm", {
+			format: "esm",
 			platform: "neutral",
 			minify: true,
+			outdir: "dist",
+			outExtension: { ".js": ".mjs" },
 			external: ["axios", "cpf-cnpj-validator", "jose", "valibot"],
 		}),
 		build("cjs", {
-			target: ["node18"],
-			minify: true,
+			format: "cjs",
 			platform: "node",
+			minify: true,
+			target: ["node18"],
+			outdir: "dist",
 			external: ["axios", "cpf-cnpj-validator", "jose", "valibot"],
 		}),
 	]);
@@ -30,13 +37,11 @@ async function buildAll() {
  * @returns
  */
 async function build(name, options) {
-	const path = `${name}.js`;
 	console.log(`Building ${name}`);
 
 	if (process.argv.includes("--watch")) {
 		const ctx = await esbuild.context({
 			entryPoints: ["./src/index.ts"],
-			outfile: `./dist/${path}`,
 			bundle: true,
 			logLevel: "info",
 			sourcemap: true,
@@ -47,7 +52,6 @@ async function build(name, options) {
 	} else {
 		return esbuild.build({
 			entryPoints: ["./src/index.ts"],
-			outfile: `./dist/${path}`,
 			bundle: true,
 			...options,
 		});

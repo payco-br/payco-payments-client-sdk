@@ -1,16 +1,14 @@
 {
 	"name": "@payco-br/payco-payments-client-sdk",
-	"version": "1.1.1",
+	"version": "1.1.11",
 	"description": "SDK for Payco Payments Client",
-	"files": [
-		"dist/**"
-	],
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
+	"files": ["dist/**"],
+	"main": "dist/script.js",
 	"exports": {
-		"require": "./dist/cjs.js",
-		"import": "./dist/esm/esm.js",
-		"default": "./dist/esm/esm.js"
+		"require": "./dist/index.js",
+		"import": "./dist/index.mjs",
+		"default": "./dist/index.mjs",
+		"types": "./dist/index.d.ts"
 	},
 	"publishConfig": {
 		"access": "public"
@@ -27,15 +25,8 @@
 		"type": "git",
 		"url": "git+https://github.com/payco-br/payco-payments-client-sdk.git"
 	},
-	"keywords": [
-		"payco",
-		"payments"
-	],
-	"author": {
-		"email": "tecnologia@payco.com.br",
-		"name": "PAYCO SERVICOS LTDA",
-		"url": "https://payco.com.br"
-	},
+	"keywords": ["payco", "payments"],
+	"author": "PAYCO SERVICOS LTDA <tecnologia@payco.com.br> (https://payco.com.br)",
 	"bugs": {
 		"url": "https://github.com/payco-br/payco-payments-client-sdk/issues"
 	},
@@ -64,5 +55,7 @@
 		"jose": "^5.2.2",
 		"valibot": "^0.28.1"
 	},
-	"packageManager": "pnpm@9.6.0+sha512.38dc6fba8dba35b39340b9700112c2fe1e12f10b17134715a4aa98ccf7bb035e76fd981cf0bb384dfa98f8d6af5481c2bef2f4266a24bfa20c34eb7147ce0b5e"
+	"packageManager": "pnpm@9.6.0+sha512.38dc6fba8dba35b39340b9700112c2fe1e12f10b17134715a4aa98ccf7bb035e76fd981cf0bb384dfa98f8d6af5481c2bef2f4266a24bfa20c34eb7147ce0b5e",
+	"homepage": "https://github.com/payco-br/payco-payments-client-sdk#readme",
+	"license": "ISC"
 }
