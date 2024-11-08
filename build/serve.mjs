@@ -1,13 +1,17 @@
 import * as esbuild from "esbuild";
-import generateBuildSettings from "./settings.mjs";
 
-const settings = generateBuildSettings({
+/**
+ * @type {import("esbuild").BuildOptions}
+ */
+const settings = {
+	entryPoints: ["./src/index.ts"],
+	bundle: true,
 	outfile: "www/index.js",
 	sourcemap: true,
 	banner: {
 		js: `new EventSource('/esbuild').addEventListener('change', () => location.reload());`,
 	},
-});
+};
 
 const ctx = await esbuild.context(settings).catch(() => process.exit(1));
 

@@ -5,7 +5,7 @@
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
 		"strict": true,
-		"outDir": "dist",
+		"outFile": "dist/index.d.ts",
 		"emitDeclarationOnly": true,
 		"declaration": true
 	},
