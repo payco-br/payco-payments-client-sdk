@@ -56,6 +56,11 @@ export const initialize = async (input: InitializeInput) => {
 	keyId = input.keyId;
 	const orgId = input.orgId || "k8vif92e";
 
+	if (typeof window === "undefined") {
+		sessionId = input.sessionId ?? crypto.randomUUID();
+		return;
+	}
+
 	if (input.installScripts ?? true) {
 		__kdt.push({ public_key: orgId }, { post_on_load: false });
 		sessionId = installScripts({
@@ -93,5 +98,11 @@ export const tokenize = async ({
 };
 
 export const getDeviceInfo = () => {
+	if (typeof window === "undefined") {
+		throw new Error(
+			"getDeviceInfo() must be called in the browser (or a window context)",
+		);
+	}
+
 	return getDeviceInfoFN();
 };
