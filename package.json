@@ -1,7 +1,7 @@
 {
 	"name": "@payco-br/payco-payments-client-sdk",
-	"version": "1.1.15",
-	"description": "SDK for Payco Payments Client",
+	"version": "1.1.14",
+	"description": "Payments by Payco Client SDK",
 	"files": ["dist/**"],
 	"main": "dist/script.js",
 	"exports": {
@@ -26,7 +26,7 @@
 		"url": "git+https://github.com/payco-br/payco-payments-client-sdk.git"
 	},
 	"keywords": ["payco", "payments"],
-	"author": "PAYCO SERVICOS LTDA <tecnologia@payco.com.br> (https://payco.com.br)",
+	"author": "PAYCO SERVICOS LTDA <tecnologia@payco.com.br> (https://payments.payco.com.br)",
 	"bugs": {
 		"url": "https://github.com/payco-br/payco-payments-client-sdk/issues"
 	},
