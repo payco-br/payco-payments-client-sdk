@@ -57,7 +57,7 @@ declare module "functions/encrypt-card-data" {
 declare module "functions/get-device-info" {
     export function getDeviceInfo(): {
         http_accept_browser_value: string;
-        http_accept_content: any;
+        http_accept_content: string;
         http_browser_language: string;
         http_browser_java_enabled: boolean;
         http_browser_javascript_enabled: boolean;
@@ -124,8 +124,9 @@ declare module "functions/anti-fraud" {
     export function addPageTag(type: string, value: string): void;
 }
 declare module "@payco-br/payco-payments-client-sdk" {
-    import type { AxiosInstance } from "axios";
-    import { CardData } from "schemas/card-data";
+	import type { AxiosInstance } from "axios";
+	import { CardData } from "schemas/card-data";
+	export { CardBrand } from "schemas/card-data";
     type InitializeInput = {
         /** Chave de integração */
         keyId: string;
@@ -169,7 +170,7 @@ declare module "@payco-br/payco-payments-client-sdk" {
     }>;
     export const getDeviceInfo: () => {
         http_accept_browser_value: string;
-        http_accept_content: any;
+        http_accept_content: string;
         http_browser_language: string;
         http_browser_java_enabled: boolean;
         http_browser_javascript_enabled: boolean;
