@@ -5,7 +5,7 @@ buildAll();
 async function buildAll() {
 	return Promise.all([
 		build("script", {
-			format: "iife",
+			format: "esm",
 			platform: "browser",
 			target: ["es6"],
 			outdir: undefined,

@@ -1,7 +1,8 @@
 import type { AxiosInstance } from "axios";
 import * as v from "valibot";
 
-import { CardData, cardDataSchema } from "./schemas/card-data";
+import { CardBrand, CardData, cardDataSchema } from "./schemas/card-data";
+export { CardBrand };
 
 import { createClient } from "./providers/client";
 
