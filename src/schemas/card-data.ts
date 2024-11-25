@@ -13,20 +13,34 @@ export const CardBrand = {
 	Hipercard: "hipercard",
 	/** Elo */
 	Elo: "elo",
-} as const
+} as const;
 
 export const cardDataSchema = z.object({
 	/** Nome do titular */
-	holderName: z.string().regex(/^[a-zA-Z\s]+$/).min(2),
+	holderName: z
+		.string()
+		.regex(/^[a-zA-Z\s]+$/)
+		.min(2),
 	/** Documento do titular (CPF ou CNPJ) */
-	holderDocument: z.string().refine(arg => cpf.isValid(arg) || cnpj.isValid(arg), "Invalid document, must be a valid CPF or CNPJ"),
+	holderDocument: z
+		.string()
+		.refine(
+			(arg) => cpf.isValid(arg) || cnpj.isValid(arg),
+			"Invalid document, must be a valid CPF or CNPJ",
+		),
 	/** Número do cartão */
-	number: z.string().regex(/^\d{16}$/, "Invalid card number, must be a valid credit card number").refine(arg => {
-		const firstDigit = arg[0];
-		return !arg.split("").every((digit: string) => digit === firstDigit);
-	}, "Invalid card number, must be a valid credit card number"),
+	number: z
+		.string()
+		.regex(
+			/^\d{16}$/,
+			"Invalid card number, must be a valid credit card number",
+		)
+		.refine((arg) => {
+			const firstDigit = arg[0];
+			return !arg.split("").every((digit: string) => digit === firstDigit);
+		}, "Invalid card number, must be a valid credit card number"),
 	/** Bandeira do cartão
-	 * 
+	 *
 	 * Valores suportados:
 	 * - Mastercard (`mastercard`)
 	 * - Visa (`visa`)
