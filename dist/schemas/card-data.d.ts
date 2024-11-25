@@ -1,36 +1,65 @@
-import * as v from "valibot";
-export declare enum CardBrand {
-    Mastercard = "mastercard",
-    Visa = "visa",
-    Amex = "amex",
-    Hipercard = "hipercard",
-    Elo = "elo"
-}
-export declare const cardDataSchema: v.ObjectSchema<{
+import z from "zod";
+export declare const CardBrand: {
+    /** MasterCard */
+    readonly Mastercard: "mastercard";
+    /** VasterCard */
+    readonly Visa: "visa";
+    /** American Express */
+    readonly Amex: "amex";
+    /** Hipercard */
+    readonly Hipercard: "hipercard";
+    /** Elo */
+    readonly Elo: "elo";
+};
+export declare const cardDataSchema: z.ZodObject<{
     /** Nome do titular */
-    holderName: v.StringSchema<string>;
+    holderName: z.ZodString;
     /** Documento do titular (CPF ou CNPJ) */
-    holderDocument: v.StringSchema<string>;
+    holderDocument: z.ZodEffects<z.ZodString, string, string>;
     /** Número do cartão */
-    number: v.StringSchema<string>;
+    number: z.ZodEffects<z.ZodString, string, string>;
     /** Bandeira do cartão
      *
-     * Bandeiras aceitas: MasterCard, Visa, Amex, Hipercard, Elo
+     * Valores suportados:
+     * - Mastercard (`mastercard`)
+     * - Visa (`visa`)
+     * - American Express (`amex`)
+     * - Hipercard (`hipercard`)
+     * - Elo (`elo`)
      */
-    cardBrand: v.EnumSchema<typeof CardBrand, CardBrand>;
+    cardBrand: z.ZodNativeEnum<{
+        /** MasterCard */
+        readonly Mastercard: "mastercard";
+        /** VasterCard */
+        readonly Visa: "visa";
+        /** American Express */
+        readonly Amex: "amex";
+        /** Hipercard */
+        readonly Hipercard: "hipercard";
+        /** Elo */
+        readonly Elo: "elo";
+    }>;
     /** Mês de expiração do cartão */
-    expirationMonth: v.StringSchema<string>;
+    expirationMonth: z.ZodString;
     /** Ano de expiração do cartão */
-    expirationYear: v.StringSchema<string>;
+    expirationYear: z.ZodString;
     /** Código de validação do cartão */
-    cvv: v.StringSchema<string>;
-}, undefined, {
+    cvv: z.ZodString;
+}, "strip", z.ZodTypeAny, {
     number: string;
     holderName: string;
     holderDocument: string;
-    cardBrand: CardBrand;
+    cardBrand: "mastercard" | "visa" | "amex" | "hipercard" | "elo";
+    expirationMonth: string;
+    expirationYear: string;
+    cvv: string;
+}, {
+    number: string;
+    holderName: string;
+    holderDocument: string;
+    cardBrand: "mastercard" | "visa" | "amex" | "hipercard" | "elo";
     expirationMonth: string;
     expirationYear: string;
     cvv: string;
 }>;
-export type CardData = v.Input<typeof cardDataSchema>;
+export type CardData = z.infer<typeof cardDataSchema>;

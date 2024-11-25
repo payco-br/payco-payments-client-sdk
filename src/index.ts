@@ -1,5 +1,5 @@
 import type { AxiosInstance } from "axios";
-import * as v from "valibot";
+import z from "zod";
 
 import { CardBrand, CardData, cardDataSchema } from "./schemas/card-data";
 export { CardBrand };
@@ -87,7 +87,7 @@ export const tokenize = async ({
 	cardData,
 	verifyCard = false,
 }: TokenizeInput) => {
-	const cardDataParsed = v.parse(cardDataSchema, cardData);
+	const cardDataParsed = cardDataSchema.parse(cardData);
 	const { publicKey } = await getPublicKey({ client, keyId });
 	const { encryptedCard } = await encryptCardData({
 		card: cardDataParsed,

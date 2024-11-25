@@ -1,8 +1,10 @@
 {
 	"name": "@payco-br/payco-payments-client-sdk",
-	"version": "1.1.15",
+	"version": "1.2.0",
 	"description": "Payments by Payco Client SDK",
-	"files": ["dist/**"],
+	"files": [
+		"dist/**"
+	],
 	"main": "dist/script.js",
 	"exports": {
 		"require": "./dist/index.js",
@@ -14,7 +16,7 @@
 		"access": "public"
 	},
 	"scripts": {
-		"prebuild": "rimraf dist",
+		"prebuild": "jest && rimraf dist",
 		"build": "tsc",
 		"postbuild": "node ./build/build.mjs",
 		"dev": "node ./build/serve.mjs",
@@ -25,7 +27,10 @@
 		"type": "git",
 		"url": "git+https://github.com/payco-br/payco-payments-client-sdk.git"
 	},
-	"keywords": ["payco", "payments"],
+	"keywords": [
+		"payco",
+		"payments"
+	],
 	"author": "PAYCO SERVICOS LTDA <tecnologia@payco.com.br> (https://payments.payco.com.br)",
 	"bugs": {
 		"url": "https://github.com/payco-br/payco-payments-client-sdk/issues"
@@ -53,7 +58,7 @@
 		"axios": "^1.7.4",
 		"cpf-cnpj-validator": "^1.0.3",
 		"jose": "^5.2.2",
-		"valibot": "^0.28.1"
+		"zod": "^3.23.8"
 	},
 	"packageManager": "pnpm@9.6.0+sha512.38dc6fba8dba35b39340b9700112c2fe1e12f10b17134715a4aa98ccf7bb035e76fd981cf0bb384dfa98f8d6af5481c2bef2f4266a24bfa20c34eb7147ce0b5e",
 	"homepage": "https://github.com/payco-br/payco-payments-client-sdk#readme",
