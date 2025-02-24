@@ -9,6 +9,8 @@ const fiservClient = axios.create({
 export async function getAuthMethod(
 	cardNumber: string,
 ): Promise<Fiserv3dsGetAuthResponse> {
+	const merchantId = process.env.MERCHANT_ID;
+	const merchantKey = process.env.MERCHANT_KEY;
 	const requestData: Fiserv3dsGetAuthRequest = {
 		cardholder: {
 			acct: {
@@ -26,8 +28,8 @@ export async function getAuthMethod(
 		{
 			headers: {
 				"Content-Type": "application/json",
-				merchant_id: `merchant_id`,
-				merchant_key: `merchant_key`,
+				merchant_id: merchantId,
+				merchant_key: merchantKey,
 			},
 		},
 	);
