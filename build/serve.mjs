@@ -1,4 +1,5 @@
 import * as esbuild from "esbuild";
+import envFilePlugin from "esbuild-envfile-plugin";
 
 /**
  * @type {import("esbuild").BuildOptions}
@@ -8,6 +9,7 @@ const settings = {
 	bundle: true,
 	outfile: "www/index.js",
 	sourcemap: true,
+	plugins: [envFilePlugin],
 	banner: {
 		js: `new EventSource('/esbuild').addEventListener('change', () => location.reload());`,
 	},

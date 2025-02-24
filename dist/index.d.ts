@@ -1,8 +1,9 @@
 import type { AxiosInstance } from "axios";
-import { CardBrand, CardData } from "./schemas/card-data";
-import {inject3DSForm} from "./functions/3ds-form-script";
-import { getAuthMethod } from "./functions/3ds";
-export { CardBrand, inject3DSForm, getAuthMethod };
+import { CardData } from "./schemas/card-data";
+export type { CardBrand } from "./schemas/card-data";
+export { getAuthMethod } from "./functions/3ds";
+export { inject3DSForm } from "./functions/3ds-form-script";
+export type { Inject3DSFormInput } from "./functions/3ds-form-script";
 declare type InitializeInput = {
     /** Chave de integração */
     keyId: string;

@@ -1,4 +1,5 @@
 import esbuild from "esbuild";
+import envFilePlugin from "esbuild-envfile-plugin";
 
 buildAll();
 
@@ -43,6 +44,7 @@ async function build(name, options) {
 			logLevel: "info",
 			sourcemap: true,
 			minify: false,
+			plugins: [envFilePlugin],
 			...options,
 		});
 		await ctx.watch();
@@ -52,6 +54,7 @@ async function build(name, options) {
 			outdir: "dist",
 			bundle: true,
 			minify: true,
+			plugins: [envFilePlugin],
 			...options,
 		});
 	}

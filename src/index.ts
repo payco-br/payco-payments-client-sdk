@@ -1,8 +1,8 @@
 import type { AxiosInstance } from "axios";
 import z from "zod";
 
-import { CardBrand, CardData, cardDataSchema } from "./schemas/card-data";
-export { CardBrand };
+import { CardData, cardDataSchema } from "./schemas/card-data";
+export type { CardBrand } from "./schemas/card-data";
 
 import { createClient } from "./providers/client";
 
@@ -11,6 +11,10 @@ import { getDeviceInfo as getDeviceInfoFN } from "./functions/get-device-info";
 import { getPublicKey } from "./functions/get-public-key";
 import { installScripts } from "./functions/install-scripts";
 import { tokenizeCardData } from "./functions/tokenize-card-data";
+
+export { getAuthMethod } from "./functions/3ds";
+export { inject3DSForm } from "./functions/3ds-form-script";
+export type { Inject3DSFormInput } from "./functions/3ds-form-script";
 
 declare type InitializeInput = {
 	/** Chave de integração */
