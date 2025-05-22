@@ -1,6 +1,6 @@
 {
 	"name": "@payco-br/payco-payments-client-sdk",
-	"version": "1.2.0",
+	"version": "1.2.4",
 	"description": "Payments by Payco Client SDK",
 	"files": [
 		"dist/**"
