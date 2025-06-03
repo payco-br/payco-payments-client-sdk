@@ -18,7 +18,8 @@ declare type TokenizeInput = {
     cardData: CardData;
     /** Verificar o cartão quando enviado para a API (opcional) */
     verifyCard?: boolean;
-    threeDs?: boolean 
+    /** Cria uma transação 3DS junto com o vault do cartão */
+    threeDs?: boolean;
 };
 declare global {
     var __kdt: {
@@ -40,9 +41,9 @@ export declare const initialize: (input: InitializeInput) => Promise<void>;
  * para validar ou não o cartão quando enviado para a API realizar a tokenização
  * @returns objeto com token do cartão
  */
-export declare const tokenize: ({ cardData, verifyCard, threeDs }: TokenizeInput) => Promise<{
+export declare const tokenize: ({ cardData, verifyCard, threeDs, }: TokenizeInput) => Promise<{
     token: string;
-    three_ds_transaction_id?: null;
+    threeDsTransactionId: string | undefined;
 }>;
 export declare const getDeviceInfo: () => {
     http_accept_browser_value: string;
