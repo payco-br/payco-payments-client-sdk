@@ -31,7 +31,7 @@ declare type TokenizeInput = {
 	/** Verificar o cartão quando enviado para a API (opcional) */
 	verifyCard?: boolean;
 	/** Cria uma transação 3DS junto com o vault do cartão */
-	threeDs?: boolean
+	threeDs?: boolean;
 };
 
 declare global {
@@ -88,7 +88,7 @@ export const initialize = async (input: InitializeInput) => {
 export const tokenize = async ({
 	cardData,
 	verifyCard = false,
-	threeDs = false
+	threeDs = false,
 }: TokenizeInput) => {
 	const cardDataParsed = cardDataSchema.parse(cardData);
 	const { publicKey } = await getPublicKey({ client, keyId });
@@ -98,7 +98,7 @@ export const tokenize = async ({
 		keyId,
 		verifyCard,
 	});
-	return await tokenizeCardData({ encryptedCard, client, threeDs : threeDs });
+	return await tokenizeCardData({ encryptedCard, client, threeDs: threeDs });
 };
 
 export const getDeviceInfo = () => {
