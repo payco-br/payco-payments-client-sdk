@@ -1,5 +1,6 @@
 import { CompactEncrypt, importSPKI } from "jose";
-import type { CardData } from "../schemas/card-data";
+
+import type { CardData } from "@/schemas/card-data";
 
 export type EncryptCardDataInput = {
 	keyId: string;

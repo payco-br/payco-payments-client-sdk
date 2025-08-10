@@ -1,6 +1,5 @@
-import z from "zod";
-
 import { cnpj, cpf } from "cpf-cnpj-validator";
+import z from "zod";
 
 export const CardBrand = {
 	/** MasterCard */

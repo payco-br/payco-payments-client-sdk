@@ -28,7 +28,7 @@ export async function tokenizeCardData({
 			token: response.data.card_vault_token,
 			threeDsTransactionId: response.data.three_ds_transaction_id,
 		};
-	} catch (error) {
+	} catch {
 		throw new Error("Error trying to tokenize card data");
 	}
 }

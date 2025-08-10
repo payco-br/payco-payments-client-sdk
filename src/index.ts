@@ -1,16 +1,14 @@
 import type { AxiosInstance } from "axios";
-import z from "zod";
 
-import { CardBrand, CardData, cardDataSchema } from "./schemas/card-data";
-export { CardBrand };
+import { CardBrand, type CardData, cardDataSchema } from "@/schemas/card-data";
 
-import { createClient } from "./providers/client";
+import { createClient } from "@/providers/client";
 
-import { encryptCardData } from "./functions/encrypt-card-data";
-import { getDeviceInfo as getDeviceInfoFN } from "./functions/get-device-info";
-import { getPublicKey } from "./functions/get-public-key";
-import { installScripts } from "./functions/install-scripts";
-import { tokenizeCardData } from "./functions/tokenize-card-data";
+import { encryptCardData } from "@/functions/encrypt-card-data";
+import { getDeviceInfo as getDeviceInfoFN } from "@/functions/get-device-info";
+import { getPublicKey } from "@/functions/get-public-key";
+import { installScripts } from "@/functions/install-scripts";
+import { tokenizeCardData } from "@/functions/tokenize-card-data";
 
 declare type InitializeInput = {
 	/** Chave de integração */
@@ -35,11 +33,13 @@ declare type TokenizeInput = {
 };
 
 declare global {
-	// biome-ignore lint/style/noVar: __kdt **needs** to be available globally (within window or `globalThis`): https://stackoverflow.com/a/55031001
+	// __kdt **needs** to be available globally (within window or `globalThis`): https://stackoverflow.com/a/55031001
 	var __kdt: { [key: string]: unknown }[];
 }
 
-export * from "./functions/anti-fraud";
+export { CardBrand };
+
+export * from "@/functions/anti-fraud";
 
 export let client: AxiosInstance;
 export let keyId: string;

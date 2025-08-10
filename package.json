@@ -21,6 +21,8 @@
 		"postbuild": "node ./build/build.mjs",
 		"dev": "node ./build/serve.mjs",
 		"test": "jest",
+		"lint": "biome lint",
+		"format": "biome check . --write --unsafe",
 		"prepare": "husky"
 	},
 	"repository": {
@@ -36,7 +38,7 @@
 		"url": "https://github.com/payco-br/payco-payments-client-sdk/issues"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.5.3",
+		"@biomejs/biome": "2.1.4",
 		"@commitlint/cli": "^18.6.1",
 		"@commitlint/config-conventional": "^18.6.2",
 		"@swc/cli": "^0.4.0",

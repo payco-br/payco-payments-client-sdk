@@ -4,6 +4,9 @@ import * as esbuild from "esbuild";
  * @type {import("esbuild").BuildOptions}
  */
 const settings = {
+	format: "esm",
+	platform: "browser",
+	target: ["es6"],
 	entryPoints: ["./src/index.ts"],
 	bundle: true,
 	outfile: "www/index.js",

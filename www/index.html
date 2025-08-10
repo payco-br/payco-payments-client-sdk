@@ -10,7 +10,21 @@
     <script type="module">
       import { initialize, tokenize } from "./index.js";
 
-      initialize({ keyId: "63382672-f7bb-4ec1-9f61-44a0773947cb" });
+      (async function () {
+        await initialize({ keyId: "71791a1d-ea1b-4780-8d87-b7ab8d7834b2" });
+
+        await tokenize({
+          cardData: {
+            number: "",
+            holderName: "",
+            holderDocument: "",
+            cardBrand: "",
+            expirationMonth: "",
+            expirationYear: "",
+            cvv: "",
+          },
+        });
+      })();
     </script>
   </body>
 </html>
